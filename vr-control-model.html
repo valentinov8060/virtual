@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-  <title>VR: Cursor Gaze</title>
+  <title>VR: Control Model</title>
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.0/dist/aframe-physics-system.min.js"></script>
@@ -115,8 +115,10 @@
       <img id="bg" src="asset/texture/Water_001_SD/Water_001_NORM.jpg">
 
       <a-asset-item id="unicron" src="asset/3D model/unicorn_low_poly_cartoon/scene.gltf"></a-asset-item>
+      <a-asset-item id="crab" src="asset/3D model/crab_claw_attack/scene.gltf"></a-asset-item>
 
-      <a-mixin id="controller" 
+      <a-mixin 
+        id="controller" 
         super-hands="
           colliderEvent: collisions;
           colliderEventProperty: els;
@@ -132,7 +134,7 @@
     </a-assets>
 
     <a-entity>
-      <a-camera position="0 20 0" wasd-controls-enabled="false">
+      <a-camera position="0 5 0" wasd-controls-enabled="false">
         <a-entity 
           cursor="rayOrigin: mouse" position="0 0 -1"
           geometry="primitive: ring; radiusInner: 0.015; radiusOuter: 0.018" material="color: #888; shader: flat"
@@ -144,7 +146,7 @@
 
     <a-entity height="100" width="100" shadow="cast:true; receive:true">
       <a-box position="-1 0.5 -2" rotation="0 45 0" color="#4CC3D9" dynamic-body grabbable></a-box>
-      <a-gltf-model src="#unicron" scale="0.08 0.08 0.08" position="0 0.01 -10" rotation="0 0 0" car animation-mixer></a-gltf-model>
+      <a-gltf-model src="#crab" scale="5 5 5" position="0 0.01 -10" rotation="0 0 0" car animation-mixer></a-gltf-model>
       <a-plane src="#ground" height="100" width="100" rotation="-90 0 0" repeat="100 100" static-body></a-plane>
     </a-entity>
 
